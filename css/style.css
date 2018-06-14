@@ -1,0 +1,310 @@
+/*-----------------------------------------------------------------------------------*/
+/*--------------------------------- FONT FACE ---------------------------------------*/
+/*--------------------------- J'appelle mes polices ---------------------------------*/
+/*-----------------------------------------------------------------------------------*/
+
+@font-face {
+    font-family: "TechnoWanker";
+    src: url(../fonts/TechnoWanker.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------------- GLOBAL ----------------------------------------*/
+/* -------- Balises et class appelés à plusieurs endroits dans la page---------------- */
+/*-------------------------------------------------------------------------------------*/
+
+* {
+    box-sizing: border-box; /*Je précise ma box-sizing (pour une width qui prenne le padding)*/
+    outline: none; /*Pour que les éléments sur lequel le user clique ne soient pas encadrés en bleu*/
+    /*border: 3px dotted rgba(0,0,0,0.3);*/ /* Visualisation des éléments en leur mettant une border à tout */
+}
+
+body {
+	margin: 0; /*Je colle mon body aux dimensions de la page web*/
+}
+
+a, a:hover, a:visited, a:active {
+    text-decoration: none; /*Ne souligne pas les liens*/
+}
+
+/* Cacher un élément */
+.hidden {display: none}
+
+/* Mettre en gras un élément */
+.bold {font-weight: bold}
+
+textarea {
+    resize: none;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------------- HEADER ----------------------------------------*/
+/* --------------------- Ce qui concerne le header et la nav ------------------------- */
+/*-------------------------------------------------------------------------------------*/
+
+header {
+    font-family: "TechnoWanker";
+    background-color : #979797;
+    color : #ffa100;
+    text-align: center;
+    margin: 0 auto;
+    text-shadow : 2px 2px 4px #000000;
+}
+
+header a{
+    color : #ffa100;
+}
+
+header img {
+    width : 15%;
+}
+
+header h1 {
+    margin-top: 0;
+}
+
+header h2 {
+    font-size: 25px;
+    padding-bottom: 15px;
+}
+
+#linkAdmin, #juricodeur {
+    color: #ffa100;
+    text-align: right;
+    padding : 0.75% 0;
+   /* La frise toute faite sur les 5 règles suivantes */
+    background: #ffa100; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #ffa100 0%, #ffa100 50%, #0a0e0a 51%, #0a0809 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #ffa100 0%,#ffa100 50%,#0a0e0a 51%,#0a0809 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #ffa100 0%,#ffa100 50%,#0a0e0a 51%,#0a0809 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa100', endColorstr='#0a0809',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+#linkAdmin a {
+    color: #ffa100;
+    margin: 1%;
+}
+
+
+
+/*-------------------------------------------------------------------------------------*/
+/*-------------------------------------- MAIN -----------------------------------------*/
+/* ------------------------ Ce qui concerne le corps du site ------------------------- */
+/*-------------------------------------------------------------------------------------*/
+
+main {
+    padding : 2%;
+}
+
+h2 {
+    font-size: 25px;
+    color: #ffa100;
+    text-shadow : 1px 1px 2px #000000;
+}
+
+.article {
+    padding-left: 5%;
+    margin-bottom: 2%;
+}
+
+.article a {
+    color: #ffa100;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.article article {
+    padding: 0.5% 0 1% 2%;
+}
+
+.article small {
+    padding-left: 4%;
+}
+
+
+
+/*-------------------------Commentaires affichés------------------------------------------------------------*/
+
+.comment-list {
+    padding: 0.5% 0 1% 2%;
+}
+
+#nameComment {
+    color: #ffa100;
+    font-weight: bold;
+}
+
+.comment article {
+    margin: 1.5% 0 1.5% 2%;
+}
+
+.comment small {
+    margin-left: 4%;
+}
+
+
+
+/*------------------------Formulaire rentrer commentaires-------------------------------------------------------------*/
+
+.generic-form {
+    width: 50%;
+    margin: 2% 0 2% 10%;
+}
+
+legend {
+    padding: 1%;
+}
+
+li {
+    margin : 3%;
+}
+
+.textarea {
+    vertical-align: top;
+}
+
+#liButtons {
+    margin-left: 16%;
+}
+
+.button-primary {
+    padding : 2%;
+    margin-right: 1%;
+    background-color: #ffa100;
+}
+
+.button-secondary {
+    padding : 2%;
+    margin-right: 1%;
+    color : #ffa100;
+    background-color: #000000;
+}
+
+.button-cancel input {
+    padding : 2%;
+    color : #ffa100;
+    background-color: #000000;
+}
+
+
+
+/*----------------------Tableau articles page admin-------------------------------------------------------------*/
+
+#admin h3 {
+    margin: 2% 0 0 5%
+}
+
+#admin h3 a {
+    color: #ffa100;
+    font-weight: bold;
+    padding: 10px;
+    border: 2px solid #ffa100;
+    border-radius: 5%;
+    background-color: #000000;
+}
+
+#articlesAdmin {
+    width : 95%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#articlesAdmin a {
+    color: #ffa100;
+}
+
+#articlesAdmin caption {
+    padding : 2% 0;
+    font-weight: bold;
+}
+
+#articlesAdmin th {
+    padding : 2% 0;
+    font-weight: bold;
+    font-style: italic;
+}
+
+#articlesAdmin tr {
+    line-height: 30px;
+}
+
+#articlesAdmin td {
+    border-bottom: 1px dashed black;
+}
+
+#articlesAdmin td a:first-child {
+    font-weight: bold;
+}
+
+
+
+/*----------------------Tableau nouvel article-------------------------------------------------------------*/
+
+#newArticle {
+    width : 50%;
+    margin : 0 auto;
+}
+
+#newArticle fieldset {
+    border: 2px solid #ffa100;
+}
+
+#newArticle legend {
+    font-weight: bold;
+    color: #ffa100;
+}
+
+#newArticle label {
+    font-weight: bold;
+}
+
+#newArticle textarea {
+    width : 100%;
+}
+
+#articleTitle {
+    width : 100%;
+}
+
+#newArticle li select {
+    width: 100%;
+}
+
+#newArticle #liButtons {
+    margin-left: 0;
+    text-align: center;
+}
+
+
+
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------------- FOOTER ----------------------------------------*/
+/* --------------------------- Ce qui concerne le footer ----------------------------- */
+/*-------------------------------------------------------------------------------------*/
+
+footer {
+    background-color : #979797;
+    color : #ffa100;
+    text-shadow : 1px 1px 2px #000000;
+}
+
+footer a {
+    color : #ffa100;
+}
+
+#juricodeur {
+    font-family: "TechnoWanker";
+    color: #000000;
+    text-align: left;
+    padding : 0.75% 0 0.75% 13%;
+   /* La frise toute faite sur les 5 règles suivantes */
+    background: #ffa100; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #ffa100 0%, #ffa100 50%, #0a0e0a 51%, #0a0809 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #ffa100 0%,#ffa100 50%,#0a0e0a 51%,#0a0809 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #ffa100 0%,#ffa100 50%,#0a0e0a 51%,#0a0809 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffa100', endColorstr='#0a0809',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+

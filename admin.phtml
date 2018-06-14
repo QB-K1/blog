@@ -1,0 +1,50 @@
+
+<section id="admin">
+
+    <h2><i class="fas fa-random"></i>&nbsp; Panneau d'administration</h2><br/>
+
+    <h3><a href="selects.php">Rédiger un nouvel article</a></h3>
+
+    <!-- Tableau des articles de page admin -->
+    <table id="articlesAdmin">
+
+        <caption>Liste des articles</caption>
+
+        <thead> 
+            <tr>
+                <th>Titre</th>
+                <th>Article</th>
+                <th>Auteur</th>
+                <th>Catégorie</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <!-- va parcourir les articles -->
+            <?php foreach($articles as $article): ?>
+
+                <tr>
+                    <!-- htmlspecialchars() modifie les caractères speciaux en html -->
+                    <td style="width:28%">
+                        <a href="show_article.php?id=<?= intval($article['Id']) ?>" target="_blank"><?= htmlspecialchars($article['Title']) ?></a>
+                    </td>
+                    <td style="width:48%"><?= substr(htmlspecialchars($article['Contents']), 0, 100) ?>&nbsp;[...]</td>
+
+                    <td style="width:10%"><?= htmlspecialchars($article['FirstName']) ?> <?= htmlspecialchars($article['LastName']) ?></td>
+
+                    <td style="width:10%"><?= htmlspecialchars($article['Category_Name']) ?></td>
+
+                    <td style="width:4%">
+                        <a class="edit" href="edit_article.php?id=<?= intval($article['Id']) ?>"><i class="fas fa-pencil-alt"></i></a> 
+                        <a class="remove" href="delete_article.php?id=<?= intval($article['Id']) ?>"><i class="fas fa-trash"></i></a>
+                    </td>
+
+                </tr>
+
+            <?php endforeach; ?>
+
+        </tbody>
+     </table>
+</section>

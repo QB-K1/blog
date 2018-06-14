@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<!-- Ici début de mon entête de document qui est invisible dans la page-->
+	<head>
+		<!-- Ici mon titre qui apparaît uniquement dans l'onglet du navigateur-->
+		<title>Blog</title>
+		<!-- Ici l'appel des bons alphabets et signes-->
+		<meta charset="utf-8"/>
+		<!--Reset la taille du visible en mobile/tablette, évite zooms-->
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<!-- Ici l'appel de la base de donnees font-awesome pour icons-->
+		<script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+		<!-- Ici l'appel du fichier CSS reset.css-->
+		<link type="text/css" rel="stylesheet" href="css/reset.css"/>
+		<!-- Ici l'appel du fichier CSS normalize.css-->
+		<link rel="stylesheet" type="text/css" href="css/normalize.css" media="all" />
+		<!-- Ici l'appel du fichier CSS style.css-->
+		<link rel="stylesheet" type="text/css" href="css/style.css" media="screen" />
+	</head>
+	<!-- Fin de l'entête du document-->
+	<!-- Ici début du corps visible dans la page-->
+	<body>
+	<!--Ici début du header-->
+		<header class="blog-header">
+
+		<img id="imgMonitor" src="img/monitor.svg" alt="Monitor" />
+
+		<h1><a href="index.php">ETHNOTECHNO</h1>
+
+		<h2>Le blog ou on discute ethique et nouvelles technologies</h2><br/>
+
+		<p id="linkAdmin"><a href="admin.php"><i class="fas fa-random"></i>&nbsp; Administrateur</a></p>
+
+		</header>
+		<!--Ici fin du header-->
+		<!--Ici début du conteneur principal-->
+		<main>
+ 			<!-- Chargement du template PHTML spécifié par le programme PHP, qui est linké dans chaque page PHP -->
+        	<?php include $template.'.phtml' ?>
+		</main>
+		<!-- Ici fin du conteneur principal-->
+		<!-- Ici le footer-->
+		<footer class="blog-footer">
+
+			<p id="juricodeur"><i class="fas fa-balance-scale"></i> Le blog du Juricodeur <i class="fas fa-balance-scale"></i></p>
+
+		</footer>
+		<!-- Ici fin du footer-->
+	</body>
+	<!-- Ici fin du corps visible dans la page-->
+</html>

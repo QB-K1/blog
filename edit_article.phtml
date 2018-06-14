@@ -1,0 +1,62 @@
+<form id="newArticle" action="edit_article_modify.php" method="POST">
+     <!-- Groupe de champs encadré par bordure avec un titre -->
+    <fieldset>
+
+        <legend><i class="far fa-file-alt"></i> Modifier l'article</legend>
+
+        <ul>
+        
+            <!-- input caché dont valeur est fixée et vaut l'ID de l'article, pour que soit récup par méthode POST et donc connu (ne modifiera qu'un seul ID/article du coup -->
+            <input type="hidden" name="postId" value="<?= intval($_GET['id']) ?>">
+
+            <li>
+                <label for="articleTitle">Titre :</label><br/>
+                <!-- foreach pour récup infos correspondant à article sélectionné -->
+                <?php foreach ($articleToModify as $article): ?>
+                <input type="text" id="articleTitle" name="articleTitle" value="<?= htmlspecialchars($article['Title']) ?>">
+            </li>
+            <li>
+                <label class="textarea" for="articleContent">Article :</label><br/>
+                <textarea id="articleContent" name="articleContent" rows="10" ><?= htmlspecialchars($article['Contents']) ?></textarea>
+            </li>
+                <?php endforeach ?>
+
+            <li>
+                <label for="articleAuthor">Auteur :</label><br/>
+                <select name="articleAuthor">
+                    <?php foreach ($authors as $author): ?>
+                        <!-- prends Id correspondant pour pouvoir le récup plus tard sans avoir à regarder contenu -->
+                        <option value="<?= ($author['Id']) ?>">
+                            <?= htmlspecialchars($author['FirstName']) ?> 
+                            <?= htmlspecialchars($author['LastName']) ?>
+                        </option>
+                    <?php endforeach ?>
+                </select>
+            </li>
+
+            <li>
+                <label for="articleCategory">Catégorie :</label><br/>
+                    <select name="articleCategory">
+                    <?php foreach ($categories as $category): ?>
+                        <!-- prends Id correspondant pour pouvoir le récup plus tard sans avoir à regarder contenu -->
+                        <option value="<?= ($category['Id']) ?>">
+                            <?= htmlspecialchars($category['Name']) ?>
+                        </option>
+                    <?php endforeach ?>
+                    </select>
+            </li>
+
+            <li id="liButtons">
+                <button class="button button-primary" type="submit">Enregistrer</button>
+
+                <button class="button button-secondary" type="reset">Effacer</button>
+
+                <a class="button button-cancel" href="admin.php"><input type="button" value="Annuler" /></a>
+
+            </li>
+
+        </ul>
+
+    </fieldset>
+
+</form>

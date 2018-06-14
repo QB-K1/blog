@@ -1,0 +1,36 @@
+<h2><i class="fas fa-gavel"></i>&nbsp; Accueil</h2><br/>
+
+<!-- liste contenant l'affichage de la preview de l'article -->
+<ul class="article-list">
+
+	<!-- va parcourir les articles -->
+	<?php foreach($articles as $article): ?>
+
+	<!-- va afficher preview article -->
+      	<li class="article">
+            <h3>
+            	<!-- logo, &nbsp; est espace forcé en PHP -->
+                <i class="fas fa-angle-double-right"></i>&nbsp;
+
+                <!-- va renvoyer vers URL où on pourra récupérer l'id de l'article cliqué -->
+               		 <!-- intval() Retourne la valeur numérique entière équivalente d'une variable -->
+                <a href="show_article.php?id=<?= intval($article['Id']) ?>" title="Consulter l'article">
+                	<!-- htmlspecialchars() modifie les caractères speciaux en html -->
+                    <?= htmlspecialchars($article['Title']) ?>
+                </a>
+            </h3>
+
+           	<!-- substr(texte, 0, 100) affiche les 100 premiers caractères d'un texte, puis mets espace forcé et [...] -->
+            <article><?= substr(htmlspecialchars($article['Contents']), 0, 100) ?>&nbsp;[...]</article>
+
+            <!-- htmlspecialchars() modifie les caractères speciaux en html -->
+            <small>
+                Rédigé par <?= htmlspecialchars($article['FirstName']) ?> <?= htmlspecialchars($article['LastName']) ?>
+                le <?= htmlspecialchars($article['CreationTimestamp']) ?>
+            </small>
+
+        </li>
+
+    <?php endforeach; ?>
+
+</ul>

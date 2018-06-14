@@ -1,0 +1,61 @@
+<!-- titre de l'article -->
+    <!-- htmlspecialchars() modifie les caractères speciaux en html -->
+<h2><i class="fas fa-angle-double-right"></i><?= htmlspecialchars($article['Title']) ?></h2>
+
+<!-- section qui contient le contenu de l'article -->
+<section class="article">
+        <!-- affiche contenu de l'article, htmlspecialchars() modifie les caractères speciaux en html, nl2br est espace forcé -->
+    <article><?= nl2br(htmlspecialchars($article['Contents'])) ?></article>
+    <!-- affiche redacteur et timestamp, htmlspecialchars() modifie les caractères speciaux en html -->
+    <small>
+        Rédigé par <?= htmlspecialchars($article['FirstName']) ?> <?= htmlspecialchars($article['LastName']) ?>
+        le <?= htmlspecialchars($article['CreationTimestamp']) ?>
+    </small>
+</section>
+
+<hr>
+
+<!-- affiche les commentaires en liste -->
+<ul class="comment-list">
+    <?php foreach($comments as $comment): ?>
+        <li class="comment">
+            <!-- affiche pseudo du user qui a commenté, htmlspecialchars() modifie les caractères speciaux en html -->
+            <h4><i class="fab fa-rocketchat"></i> Rédigé par <span id="nameComment"><?= htmlspecialchars($comment['NickName']) ?></span></h4>
+            <!-- affiche contenu du commentaire, htmlspecialchars() modifie les caractères speciaux en html -->
+            <article><?= htmlspecialchars($comment['Contents']) ?></article>
+            <small><?= $comment['CreationTimestamp'] ?></small>
+        </li>
+    <?php endforeach; ?>
+</ul>
+
+<hr>
+
+
+<!-- formulaire pour entrer un commentaires, va stocker dans le localhost (méthode post) et envoyer son contenu dans le fichier add_comment.php -->
+<form class="generic-form" action="add_comment.php" method="POST">
+
+    <!-- input caché dont valeur est fixée et vaut l'ID de l'article, pour que soit récup par méthode POST et donc connu (ne commentera qu'un seul ID/article du coup -->
+    <input type="hidden" name="postId" value="<?= intval($_GET['id']) ?>">
+
+    <fieldset>
+        <legend><i class="fab fa-rocketchat"></i> Nouveau commentaire</legend>
+        <ul>
+            <li>
+                <label for="nickName">Pseudo :</label>
+                <input type="text" id="nickName" name="nickName">
+            </li>
+            <li>
+                <label class="textarea" for="contents">Commentaire :</label>
+                <textarea id="contents" name="contents" rows="5"></textarea>
+            </li>
+            <li id="liButtons">
+                <button class="button button-primary" type="submit">Ajouter</button>
+
+                <button class="button button-secondary" type="reset">Effacer</button>
+
+                <a class="button button-cancel" href="index.php"><input type="button" value="Annuler" /></a>
+
+            </li>
+        </ul>
+    </fieldset>
+</form>
